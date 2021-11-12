@@ -1,12 +1,24 @@
-name: 'List Pull Requests Actions'
-description: 'List PRs and Authors'
-author: 'ArielSAdamsNASA'
-
+name: 'List Pull Requests'
+description: 'list and put output pull requests'
+branding:
+  icon: 'bell'  
+  color: 'yellow'
 inputs:
-  GITHUB_TOKEN:
-    description: 'GitHub token'
+  token:
+    description: 'github token'
     required: true
-
+    default: ''
+  labels:
+    description: 'require labels to list (JSON array string)'
+    required: false
+    default: '[ "WFR" ]'
+  skip_hour:
+    description: 'Pull requests within this hour will not be listed'
+    required: true
+    default: '24'
+outputs:
+  result:
+    description: 'pull request string'
 runs:
   using: 'node12'
   main: 'dist/index.js'
