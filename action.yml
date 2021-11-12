@@ -1,0 +1,12 @@
+name: 'List Pull Requests Actions'
+description: 'List PRs and Authors'
+author: 'ArielSAdamsNASA'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
